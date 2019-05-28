@@ -13,11 +13,15 @@ public class DemoCallable implements Callable<Integer> {
 
     public Integer call() {
         // 业务处理逻辑，对数组求和
-        //int[] array = {1,2,3,4,5};
         System.out.println(Thread.currentThread().getName()+"数组为"+ Arrays.toString(this.array));
         int sum = 0;
         for (int i : array) {
             sum = sum + i;
+        }
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
         }
         System.out.println(Thread.currentThread().getName()+"&&&数组求和为："+sum);
         return sum;
